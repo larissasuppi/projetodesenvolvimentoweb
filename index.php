@@ -65,26 +65,26 @@
    
     
 
- <!-- <?php
-  session_start();
-  $tempo_atual = @mktime(date("Y/m/d H:i:s"));
-        $tempo_permitido = 1800; // tempo em segundos até redirecionar
-        $fim = "";
-        if(@$_SESSION['Cookie_countdown']=="") {
-          $tempo_entrada = @mktime(date("Y/m/d H:i:s"));
-        $tempo_cookie = '3600'; // em segundos
-        $_SESSION['Cookie_countdown'] = $tempo_entrada;
-      } else {
-        $tempo_gravado = $_SESSION['Cookie_countdown'];
-        $tempo_gerado = $tempo_atual-$tempo_gravado;
-        $fim.= $tempo_permitido-$tempo_gerado;
-        if($fim <= 0) {
-          echo "tempo esgotado";
-          $_SESSION['Cookie_countdown'] = "";
-        } else {
-        }
-      }
-?>-->
+  <?php
+  $tempo_atual = time();
+  $tempo_permitido = 1800; // tempo em segundos até redirecionar
+  $fim = -1;
+  
+  if(isset($_SESSION['Cookie_countdown'])) {
+    $tempo_gravado = $_SESSION['Cookie_countdown'];
+    $tempo_gerado = $tempo_atual-$tempo_gravado;
+    $fim = $tempo_permitido - $tempo_gerado;
+    if($fim <= 0) {
+      echo "tempo esgotado";
+      $_SESSION['Cookie_countdown'] = "";
+    } else {
+      $_SESSION['Cookie_countdown'] = time(); // tempo começa a contar novamente
+      $tempo_gravado = $_SESSION['Cookie_countdown'];
+      $tempo_gerado = $tempo_atual-$tempo_gravado;
+      $fim = $tempo_permitido - $tempo_gerado;
+    }
+  }
+?>
 
 
   <!-- JavaScript (Opcional) -->
@@ -95,25 +95,24 @@
 
     <script src="js/examples.js"></script>
 
- <script>
-      var contador = '<?php if($fim=="") { echo $tempo_permitido+1; } else { echo "$fim"; } ?>';
-      function Conta() {
-      if(contador <= 0) {
-      location.href='teste2.php';
-      return false;
-      }
+<script language="JavaScript">
+    var contador = '<?php if($fim <= 0) { echo $tempo_permitido+1; } else { echo "$fim"; } ?>';
+    function Conta() {
+    if(contador <= 0) {
+    location.href='telalogin.php';
+    return false;
+    }
+    contador = contador-1;
+    setTimeout("Conta()", 1000);
+    var minutos = Math.floor(contador / 60);
+    var segundos = contador - minutos * 60;
 
-
-      contador = contador-1;
-      setTimeout("Conta()", 1000);
-      document.getElementById("valor").innerHTML = contador;
-      }
-      window.onload = function() {
-      Conta();
-      }
-
-      
-</script>
+    document.getElementById("valor").innerHTML = minutos + ":" + segundos;
+    }
+    window.onload = function() {
+    Conta();
+    }
+  </script>
 
     
 </body>
