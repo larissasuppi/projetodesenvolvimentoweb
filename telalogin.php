@@ -20,11 +20,11 @@
 				<form name="form_login" action="index.php" method="post">
 					<div class="form-group justify-content-center">
 						<label for="usuario">Login:</label>
-						<input type="text" name="usuario" class="form-control"  placeholder="Login">
+						<input type="text" name="usuario" class="form-control"  placeholder="Login" required="" autofocus="">
 					</div>
 					<div class="form-group">
 						<label for="senha">Senha</label>
-						<input type="password" name="senha" class="form-control" placeholder="Senha">
+						<input type="password" name="senha" class="form-control" placeholder="Senha" required="">
 					</div>
 					<div class="botao mb-3">
 						<button name="validaLogin" type="submit" class="btn btn-warning ml-6">Enviar</button>
