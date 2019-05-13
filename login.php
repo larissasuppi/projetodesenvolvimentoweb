@@ -1,30 +1,15 @@
 	<?php
-	if (isset($_SESSION['logado'])) { //verifica se a sessão já não estava aberta e destrói a sessão
-
-		$_SESSION = array();
+		if (isset($_SESSION['logado'])) { //verifica se a sessão já não estava aberta e destrói a sessão
 		session_unset();
-		
-
+		session_destroy();
 	}
-	if ($_POST['usuario'] == 'admin' && $_POST['senha'] == '12345') {
+
+	if ($_POST['usuario'] == "admin" && $_POST['senha'] == "12345") {
 		$_SESSION['logado'] = true;
-		$_SESSION['dataLogin'] = time();
-		include('menu.php');
-	}else{
-		include('logoff.php');
+		$tempo_entrada = time();
+		$_SESSION['Cookie_countdown'] = $tempo_entrada;
+		include('menu.php');		
 	}
-
 	
-	if( isset( $_SESSION['views'] ) ) {
-
-		$_SESSION['views']++;
-
-	}else{
-
-		$_SESSION['views']=1;
-
-	}
-
-	echo "Visualizações=".$_SESSION['views'];
-
+	
 	?>
