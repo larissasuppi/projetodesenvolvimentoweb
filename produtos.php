@@ -32,7 +32,7 @@ if (isset($_POST['editaProduto'])) {
     </div>
     <div class="row cadastro">
       <div class="col-md-12">
-        <form class="form-group needs-validation justify-content-center" method="post" action="index.php" enctype="multipart/form-data" novalidate>
+        <form class="form-group needs-validation justify-content-center" method="post" " enctype="multipart/form-data" action="index.php" novalidate>
           <div class="form-row">
 
           <div class="col-md-2">
@@ -54,7 +54,8 @@ if (isset($_POST['editaProduto'])) {
 
              <div class="form-group col-md-5">
               <label for="imagem">Foto: </label>
-              <input value="<?php echo $imagem; ?>" type="file" class="form-control border-0" id="imagem" name="imagem" required>
+              <?php echo "<img src='{$imagem}' width='100' height='100'>"; ?>
+              <input  type="file" class="form-control border-0" id="imagem" name="imagem">
             </div>
           </div>
 
@@ -65,7 +66,7 @@ if (isset($_POST['editaProduto'])) {
             echo "</div></div>";
           } elseif (isset($_POST['editaProduto'])) {
             echo "<div class='form-row'><div class='col'>";
-            echo "<button type='submit' name='editarProduto' id='editClienteDB' class='btn btn-secondary form-control'><i class='fas fa-save'></i> Salvar</button>";
+            echo "<button type='submit' name='editarProduto' id='editClienteDB' class='btn btn-secondary form-control'><i class='fas fa-save'></i> Atualizar</button>";
             echo "</div><div class='col'>";
             echo "<button type='submit' name='deletaProduto' id='excluiClienteDB' class='btn btn-danger form-control'><i class='far fa-trash-alt'></i> Excluir</button>";
             echo "</div></div>";
@@ -77,8 +78,3 @@ if (isset($_POST['editaProduto'])) {
       </div>
     </div>
 </div>
-    <div class="jumbotron jumbotron-fluid py-3">
-    <footer class="footer-copyright text-center py-3">
-      @ 2019 Larissa Pinheiro Suppi
-    </footer>
-  </div>
