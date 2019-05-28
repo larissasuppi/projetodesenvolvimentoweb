@@ -49,7 +49,7 @@
 
                       echo "<td><form action='index.php' method='POST' name='editProduto{$row->id_produto}'>
                       <input type='hidden' name='idProduto' value='{$row->id_produto}'>
-                      <button class='btn btn-warning' type='submit' name='editaProduto'><i class='far fa-edit'></i></i></button>
+                      <button class='btn btn-warning' type='submit' name='editaProduto'><i class='far fa-edit'></i></button>
                       </form></td>";
                       echo "</tr>";
                     }
