@@ -1,10 +1,8 @@
 <?php
 include './validaSessao.php';
-
 $lTC = $pdo->prepare("SELECT * FROM tb_clientes");
 $lTC->execute();
 $listaTodosClientes = $lTC->fetchAll(PDO::FETCH_OBJ);
-
 $ltopc = $pdo->prepare("SELECT tb_pedidos.id_pedido, tb_pedidos.data_hora, tb_clientes.nome, tb_clientes.id_cliente FROM tb_pedidos
 LEFT JOIN tb_clientes ON tb_pedidos.id_cliente=tb_clientes.id_cliente");
 $ltopc->execute();
@@ -17,7 +15,7 @@ $listaTodosPedidosCadastrados = $ltopc->fetchAll(PDO::FETCH_OBJ);
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label for="buscarCliente">Cliente</label><br>
-                    <select class="select"  required name="buscarClientePedido">
+                    <select class="browser-default custom-select" required name="buscarClientePedido">
                         <option>Selecione um cliente</option>
                         <?php foreach ($listaTodosClientes as $c) { ?>
                             <option value="<?php echo $c->id_cliente ?>"><?php echo $c->nome ?></option>
@@ -30,12 +28,16 @@ $listaTodosPedidosCadastrados = $ltopc->fetchAll(PDO::FETCH_OBJ);
                 </div>
             </div>
         </div>
-        <input type="submit" class="btn btn-success text-center" name="inserirClienteParaFazerPedido" value="CADASTRAR PEDIDO">
+        <div id="botao">
+            <input type="submit" class="btn btn-warning text-center" name="inserirClienteParaFazerPedido" value="CADASTRAR PEDIDO">
+        </div>
     </form>
     <br><br>
     <div class="row">
-        <br> <label class="col-md-12 text-center">Produtos cadastrados</label>
-        <table class="table">
+        <br> <label class="col-md-12 text-center ">
+            <h4>Pedidos cadastrados</h4>
+        </label>
+        <table class="table text-center">
             <thead>
                 <th scope="col">Nº Pedido</th>
                 <th scope="col">Cliente</th>
@@ -50,14 +52,14 @@ $listaTodosPedidosCadastrados = $ltopc->fetchAll(PDO::FETCH_OBJ);
                         <td width="20px">
                             <form name="formPedidosExcluir<?php echo $l->id_produto; ?>" action="index.php" method="POST">
                                 <input type="hidden" name="excluirPedidoFinal" value="<?php echo $l->id_pedido; ?>">
-                                <button type="submit" name="buttonExcluirPedidoFinal" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                <button type="submit" name="buttonExcluirPedidoFinal" style="font-size:24px" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                             </form>
                         </td>
                         <td>
                             <form name="formPedidosPdf<?php echo $l->id_produto; ?>" action="index.php" method="POST">
                                 <input type="hidden" name="nomeClientePdf" value="<?php echo $l->id_cliente; ?>">
                                 <input type="hidden" name="gerarPdf" value="<?php echo $l->id_pedido; ?>">
-                                <button type="submit" name="enviaDadosPdf" style="font-size:24px; color:red"><i class="fa fa-file-pdf-o"></i></button>
+                                <button type="submit" name="enviaDadosPdf" style="font-size:24px; color:red" class="btn btn-light" ><i class="fa fa-file-pdf-o"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -69,4 +71,10 @@ $listaTodosPedidosCadastrados = $ltopc->fetchAll(PDO::FETCH_OBJ);
 
     <!--<i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i>-->
     <br>
+
+</div>
+<div class="jumbotron jumbotron-fluid py-3">
+    <footer class="footer-copyright text-center py-3">
+        @ 2019 Larissa Pinheiro Suppi
+    </footer>
 </div>
