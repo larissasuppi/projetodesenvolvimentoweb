@@ -40,7 +40,7 @@ $populaOsProdutos = $popleB->fetchAll(PDO::FETCH_OBJ);
     </form>
 </div>
 <div class="jumbotron jumbotron-fluid py-3">
-  <footer class="footer-copyright text-center py-3">
-    @ 2019 Larissa Pinheiro Suppi
-  </footer>
+    <footer class="footer-copyright text-center py-3">
+        @ 2019 Larissa Pinheiro Suppi
+    </footer>
 </div>

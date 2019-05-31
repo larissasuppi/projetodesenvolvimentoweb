@@ -23,60 +23,60 @@ if (isset($_POST['editaProduto'])) {
   }
 }
 ?>
-  
-   <div class="container">
-    <div class="row formulario">
-      <div class="col-md-12">
-        <div class="display-3">Produtos</div>
-      </div>
+
+<div class="container">
+  <div class="row formulario">
+    <div class="col-md-12">
+      <div class="display-3">Produtos</div>
     </div>
-    <div class="row cadastro">
-      <div class="col-md-12">
-        <form class="form-group needs-validation justify-content-center" method="post" " enctype="multipart/form-data" action="index.php" novalidate>
-          <div class="form-row">
+  </div>
+  <div class="row cadastro">
+    <div class="col-md-12">
+      <form class="form-group needs-validation justify-content-center" method="post" " enctype=" multipart/form-data" action="index.php" novalidate>
+        <div class="form-row">
 
           <div class="col-md-2">
             <label for="idProduto">Código :</label>
             <input readonly value="<?php echo $id; ?>" type="text" name="idProduto" id="idProduto" class="form-control" arria-describeby="idClienteHelp" placeholder="ID Cliente">
             <small id="idClienteHelp" class="form-text text-muted">Informe o id do cliente.</small>
-            </div>
+          </div>
 
-             <div class="form-group col-md-10">
+          <div class="form-group col-md-10">
             <label for="descricao">Descrição</label>
             <input value="<?php echo $descricao; ?>" type="text" class="form-control" id="descricao" name="descricao" placeholder="Digite a descrição completa para a venda" required>
           </div>
-          </div>
-          <div class="form-row">
-           <div class="form-group col-md-2">
-              <label for="valor">Preço</label>
-              <input value="<?php echo $valor; ?>" type="text" class="form-control" id="valor" name="valor" placeholder="R$: " required>
-            </div>
-
-             <div class="form-group col-md-5">
-              <label for="imagem">Foto: </label>
-              <?php echo "<img src='{$imagem}' width='100' height='100'>"; ?>
-              <input  type="file" class="form-control border-0" id="imagem" name="imagem">
-            </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="valor">Preço</label>
+            <input value="<?php echo $valor; ?>" type="text" class="form-control" id="valor" name="valor" placeholder="R$: " required>
           </div>
 
-          <?php
-          if (isset($_POST['adicionarProduto'])) {
-            echo "<div class='form-row'><div class='col'>";
-            echo "<button type='submit' name='cadastrarProduto' id='addClienteDB' class='btn btn-warning form-control'><i class='fas fa-save'></i> Salvar</button>";
-            echo "</div></div>";
-          } elseif (isset($_POST['editaProduto'])) {
-            echo "<div class='form-row'><div class='col'>";
-            echo "<button type='submit' name='editarProduto' id='editClienteDB' class='btn btn-secondary form-control'><i class='fas fa-save'></i> Atualizar</button>";
-            echo "</div><div class='col'>";
-            echo "<button type='submit' name='deletaProduto' id='excluiClienteDB' class='btn btn-danger form-control'><i class='far fa-trash-alt'></i> Excluir</button>";
-            echo "</div></div>";
-          }
-          ?>  
-        </form>
-       
+          <div class="form-group col-md-5">
+            <label for="imagem">Foto: </label>
+            <?php echo "<img src='{$imagem}' width='100' height='100'>"; ?>
+            <input type="file" class="form-control border-0" id="imagem" name="imagem">
+          </div>
+        </div>
 
-      </div>
+        <?php
+        if (isset($_POST['adicionarProduto'])) {
+          echo "<div class='form-row'><div class='col'>";
+          echo "<button type='submit' name='cadastrarProduto' id='addClienteDB' class='btn btn-warning form-control'><i class='fas fa-save'></i> Salvar</button>";
+          echo "</div></div>";
+        } elseif (isset($_POST['editaProduto'])) {
+          echo "<div class='form-row'><div class='col'>";
+          echo "<button type='submit' name='editarProduto' id='editClienteDB' class='btn btn-secondary form-control'><i class='fas fa-save'></i> Atualizar</button>";
+          echo "</div><div class='col'>";
+          echo "<button type='submit' name='deletaProduto' id='excluiClienteDB' class='btn btn-danger form-control'><i class='far fa-trash-alt'></i> Excluir</button>";
+          echo "</div></div>";
+        }
+        ?>
+      </form>
+
+
     </div>
+  </div>
 </div>
 <div class="jumbotron jumbotron-fluid py-3">
   <footer class="footer-copyright text-center py-3">

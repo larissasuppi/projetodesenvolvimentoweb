@@ -12,31 +12,31 @@
         </div>
       </form>
       <hr>
-    </form>
+      </form>
 
-      
-              <table class="table text-center">
-                <thead>
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Endereço:</th>
-                    <th scope="col">Número:</th>
-                    <th scope="col">Observação:</th>
-                    <th scope="col">CEP:</th>
-                    <th scope="col">Bairro:</th>
-                    <th scope="col">Cidade:</th>
-                    <th scope="col">Estado:</th>
-                    <th scope="col">Telefone:</th>
-                    <th scope="col">E-mail:</th>
-                    <th scope="col"><button type="submit" class="btn btn-light" ><i class="far fa-trash-alt"></i></button></th>
-                    <th scope="col"><button type="submit" class="btn btn-light"><i class="far fa-edit"></i></button></th>
 
-                  </tr>
-                </thead>
-                
-                <tbody> <?php
-        //busca os clientes
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Endereço:</th>
+            <th scope="col">Número:</th>
+            <th scope="col">Observação:</th>
+            <th scope="col">CEP:</th>
+            <th scope="col">Bairro:</th>
+            <th scope="col">Cidade:</th>
+            <th scope="col">Estado:</th>
+            <th scope="col">Telefone:</th>
+            <th scope="col">E-mail:</th>
+            <th scope="col"><button type="submit" class="btn btn-light"><i class="far fa-trash-alt"></i></button></th>
+            <th scope="col"><button type="submit" class="btn btn-light"><i class="far fa-edit"></i></button></th>
+
+          </tr>
+        </thead>
+
+        <tbody> <?php
+                //busca os clientes
                 $filtro = array('auxNome' => '%%');
                 $rs = $pdo->prepare("SELECT id_cliente,nome,endereco,numero,
                   observacao,cep,bairro,cidade,estado,telefone,email 
@@ -66,22 +66,22 @@
                       </form></td>";
                       echo "</tr>";
                     }
-                  } 
+                  }
                 }
                 echo "</tbody>";
-                ?>  
-                
-              </table>
+                ?>
+
+      </table>
 
 
 
 
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="jumbotron jumbotron-fluid py-3">
-    <footer class="footer-copyright text-center py-3">
-      @ 2019 Larissa Pinheiro Suppi
-    </footer>
-  </div>
+<div class="jumbotron jumbotron-fluid py-3">
+  <footer class="footer-copyright text-center py-3">
+    @ 2019 Larissa Pinheiro Suppi
+  </footer>
+</div>

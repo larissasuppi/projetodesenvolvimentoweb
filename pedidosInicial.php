@@ -18,7 +18,7 @@ $listaTodosPedidosCadastrados = $ltopc->fetchAll(PDO::FETCH_OBJ);
                 <div class="form-group col-sm-4">
                     <label for="buscarCliente">Cliente</label><br>
                     <select class="browser-default custom-select bg-light" id="select1" required name="buscarClientePedido">
-                    <option value="" disabled selected>Selecione um cliente...</option>
+                        <option value="" disabled selected>Selecione um cliente...</option>
                         <?php foreach ($listaTodosClientes as $c) { ?>
                             <option value="<?php echo $c->id_cliente ?>"><?php echo $c->nome ?></option>
                         <?php } ?>
@@ -61,7 +61,7 @@ $listaTodosPedidosCadastrados = $ltopc->fetchAll(PDO::FETCH_OBJ);
                             <form name="formPedidosPdf<?php echo $l->id_produto; ?>" action="index.php" method="POST">
                                 <input type="hidden" name="nomeClientePdf" value="<?php echo $l->id_cliente; ?>">
                                 <input type="hidden" name="gerarPdf" value="<?php echo $l->id_pedido; ?>">
-                                <button type="submit" name="enviaDadosPdf" style="font-size:24px; color:red" class="btn btn-light" ><i class="fa fa-file-pdf-o"></i></button>
+                                <button type="submit" name="enviaDadosPdf" style="font-size:24px; color:red" class="btn btn-light"><i class="fa fa-file-pdf-o"></i></button>
                             </form>
                         </td>
                     </tr>

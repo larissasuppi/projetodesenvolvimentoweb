@@ -12,6 +12,3 @@
 	   PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 	);
 	$pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $options);
-
-
-?>
