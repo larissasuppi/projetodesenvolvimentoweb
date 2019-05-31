@@ -96,18 +96,18 @@ $populaOsProdutosLaEmBaixo = $popleB->fetchAll(PDO::FETCH_OBJ);
     <div class="row">
       <div class="col-md-12">
         <div class="form-row">
-        <div class="col-sm-3">
+          <div class="col-sm-3">
             <label for="pegaOtextoParaPassarParaLa">Pesquisa de Produto</label>
             <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-append">
-                        <input class="form-control" type="text" id="pegaOtextoParaPassarParaLa" name="pegaOtextoParaPassarParaLa" placeholder="Digite nome do produto" />
-                        <button name="adicionaProdutoNoPedido" class="btn btn-default" type="submit">Buscar</button>
-                    </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <input class="form-control rounded-left" type="text" id="pegaOtextoParaPassarParaLa" name="pegaOtextoParaPassarParaLa" placeholder="Digite nome do produto" />
+                  <button name="adicionaProdutoNoPedido" class="btn btn-outline-secondary rounded-right"  type="submit">Buscar</button>
                 </div>
-                <input type="hidden" name="recebeIdDoPedidoQueNaoParaDeAumentar" value="<?php echo $dadosPedido['id_pedido'] ?>">
+              </div>
+              <input type="hidden" name="recebeIdDoPedidoQueNaoParaDeAumentar" value="<?php echo $dadosPedido['id_pedido'] ?>">
             </div>
-        </div>
+          </div>
           <div class="col-sm-3">
             <label for="valorTotalPedido">Total</label>
             <div class="form-group">
@@ -163,7 +163,7 @@ $populaOsProdutosLaEmBaixo = $popleB->fetchAll(PDO::FETCH_OBJ);
                       <input type="hidden" name="idProduto" value="<?php echo $l->id_produto; ?>">
                       <input type="hidden" name="idPedido" value="<?php echo $dadosPedido['id_pedido']; ?>">
                       <input type="hidden" name="valor" value="<?php echo $l->valor; ?>">
-                      <button name="AddProduto" type="submit" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                      <button name="AddProdutoNaListaDePedido" type="submit" class="btn btn-primary"><i class="fas fa-plus"></i></button>
                     </td>
                   </tr>
                 </tbody>
@@ -178,14 +178,16 @@ $populaOsProdutosLaEmBaixo = $popleB->fetchAll(PDO::FETCH_OBJ);
     </div>
   </div>
 </div>
-
+<br>
 <div class="container">
   <div class="row">
     <?php if (isset($populaOsProdutosLaEmBaixo)) { ?>
 
       <div class="row col-md-12">
-        <br> <label class="col-md-offset-5">Produtos cadastrados</label>
-        <table class="table">
+        <br> <label class="col-md-12 text-center">
+          <h4>Produtos cadastrados</h4>
+        </label>
+        <table class="table text-center">
           <thead>
             <th scope="col">Codigo</th>
             <th scope="col">Descrição</th>
@@ -226,10 +228,21 @@ $populaOsProdutosLaEmBaixo = $popleB->fetchAll(PDO::FETCH_OBJ);
             <?php endforeach; ?>
           </tbody>
         </table>
-        <form action="index.php" method="POST">
-          <button type="submit" name="FinalizarPedido" class="btn btn-success text-center"><i class="far fa-save"></i>Gravar</button>
-        </form>
+        <div class="row">
+          <form action="index.php" method="post">
+            <div id="botao">
+              <button type="submit" name="FinalizarPedido" class="btn btn-success text-center"><i class="far fa-save"></i>Gravar</button>
+            </div>
+          </form>
+        </div>
+
       </div>
     <?php } ?>
   </div>
+</div>
+<br>
+<div class="jumbotron jumbotron-fluid py-3">
+  <footer class="footer-copyright text-center py-3">
+    @ 2019 Larissa Pinheiro Suppi
+  </footer>
 </div>

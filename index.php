@@ -9,9 +9,10 @@
 
   <!-- Bootstrap CSS -->
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <title>Index</title>
 </head>
 
@@ -46,49 +47,64 @@
   } elseif (isset($_POST['validaLogin'])) {
     include('login.php');
   } elseif (isset($_POST['adicionar'])  || isset($_POST['editaCliente'])) {
-
     include('menu.php');
     include('clientes.php');
   } elseif (isset($_POST['adicionarPedido'])) {
     include('menu.php');
     include('pedidos.php');
   } elseif (isset($_POST['adicionarProduto']) || isset($_POST['editaProduto'])) {
-
     include('menu.php');
     include('produtos.php');
+
   } elseif (isset($_POST['cadastrarCliente'])) {
-    include('insertCliente.php');
+    include('action/insertCliente.php');
+
   } elseif (isset($_POST['deletaCliente'])) {
-    include('deleteCliente.php');
+    include('action/deleteCliente.php');
+
   } else if (isset($_POST['editarCliente'])) {
-    include('editarCliente.php');
+    include('action/editarCliente.php');
+
   } else if (isset($_POST['cadastrarProduto'])) {
-    include('insertProduto.php');
+    include('action/insertProduto.php');
+
   } elseif (isset($_POST['deletaProduto'])) {
-    include('deleteProduto.php');
+    include('action/deleteProduto.php');
+
   } elseif (isset($_POST['editarProduto'])) {
-    include('editarProduto.php');
+    include('action/editarProduto.php');
+
   } elseif (isset($_POST['inserirClienteParaFazerPedido'])) {
-    include('insertPedido.php');
+    include('action/insertPedido.php');
+
   } elseif (isset($_POST['adicionaProdutoNoPedido'])) {
     include('menu.php');
     include('pedidos.php');
-  } elseif (isset($_POST['AddProduto'])) {
-    include('insertProdutoPedido.php');
+
+  } elseif (isset($_POST['AddProdutoNaListaDePedido'])) {
+    include('action/insertProdutoPedido.php');
+
   } elseif (isset($_POST['FinalizarPedido'])) {
     include('menu.php');
     include('pedidosInicial.php');
+
   } elseif (isset($_POST['editarProdutoDaLista'])) {
     include('menu.php');
     include('editarProdutoPedido.php');
+
   } elseif (isset($_POST['editarProdutoNoPedido'])) {
-    include('atualizarProdutoPedido.php');
+    include('action/atualizarProdutoPedido.php');
+
   } elseif (isset($_POST['excluirProdutoDaLista'])) {
-    include('deleteProdutoPedido.php');
-  } elseif (isset($_POST['excluirProdutoDaLista'])) {
-    include('deleteProdutoPedido.php');
+    include('action/deleteProdutoPedido.php');
+
   } elseif (isset($_POST['buttonExcluirPedidoFinal'])) {
-    include('deletePedidoFinal.php');
+    include('action/deletePedidoFinal.php');
+
+  } elseif (isset($_POST['enviaDadosPdf'])) {
+    $_SESSION['id_pedido'] = $_POST['gerarPdf'];
+    $_SESSION['id_cliente'] = $_POST['nomeClientePdf'];
+    header("location: gerarPdf.php");
   } elseif (isset($_POST['validaLogin'])) {
     include('login.php');
   } else {
@@ -123,9 +139,10 @@
   <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
   <!-- JS para campos pedidos -->
 
-  <script src="bootstrap/js/jquery.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="bootstrap/js/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="bootstrap/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="js/janelaModal.js"></script>
 
   <script src="https://yandex.st/highlightjs/7.3/highlight.min.js"></script>
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -140,7 +157,7 @@
   <!-- <script src="js/examples.js"></script> -->
 
 
-  <script language="JavaScript">
+  <script>
     var contador = '<?php if ($fim <= 0) {
                       echo $tempo_permitido + 1;
                     } else {

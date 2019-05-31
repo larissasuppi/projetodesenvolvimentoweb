@@ -15,7 +15,7 @@
     </form>
 
       
-              <table class="table table-bordered">
+              <table class="table text-center">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -58,11 +58,11 @@
                       echo "<td>{$row->email}</td>";
                       echo "<td><form action='index.php' method='POST' name='delCliente{$row->id_cliente}'>
                       <input type='hidden' name='idCliente' value='{$row->id_cliente}'>
-                      <button class='btn btn-warning' type='submit' name='deletaCliente'><i class='far fa-trash-alt'></i></button>
+                      <button class='btn btn-danger' type='submit' name='deletaCliente'><i class='far fa-trash-alt'></i></button>
                       </form></td>";
                       echo "<td><form action='index.php' method='POST' name='editCliente{$row->id_cliente}'>
                       <input type='hidden' name='idCliente' value='{$row->id_cliente}'>
-                      <button class='btn btn-warning' type='submit' name='editaCliente'><i class='far fa-edit'></i></i></button>
+                      <button class='btn btn-success' type='submit' name='editaCliente'><i class='far fa-edit'></i></i></button>
                       </form></td>";
                       echo "</tr>";
                     }

@@ -78,3 +78,8 @@ if (isset($_POST['editaProduto'])) {
       </div>
     </div>
 </div>
+<div class="jumbotron jumbotron-fluid py-3">
+  <footer class="footer-copyright text-center py-3">
+    @ 2019 Larissa Pinheiro Suppi
+  </footer>
+</div>

@@ -14,7 +14,7 @@
       <hr>
     </form>
 
-        <table class="table table-bordered">
+        <table class="table text-center">
                 <thead>
                   <tr>
                     <th scope="col">Código</th>
