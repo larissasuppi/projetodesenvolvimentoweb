@@ -21,7 +21,7 @@
      $stmt->execute($edit_produto);
 
      if ($stmt->rowCount() > 0) {
-         include 'menu.php';
+        include 'menu.php';
  		include './tabelaProdutos.php';
      } else {
          echo "<br><br><br>ERRO novo!!!!!";

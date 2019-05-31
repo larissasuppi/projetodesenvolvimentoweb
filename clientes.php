@@ -52,7 +52,7 @@ if (isset($_POST['editaCliente'])) {
           </div>
           <div class="form-group col-md-10 ">
             <label for="nomeCliente">Nome do Cliente: </label><br>
-            <input value="<?php echo $nome; ?>" arria-describeby="nomeClienteHelp" type="text" class="form-control" id="nomeCliente" name="nome" required>
+            <input value="<?php echo $nome; ?>" arria-describeby="nomeClienteHelp" autofocus type="text" class="form-control" id="nomeCliente" name="nome" required>
             <small id="nomeClienteHelp" class="form-text text-muted">Informe o Nome do cliente.</small>
           </div>
         </div>

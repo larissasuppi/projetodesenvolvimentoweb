@@ -32,7 +32,7 @@ if (isset($_POST['editaProduto'])) {
   </div>
   <div class="row cadastro">
     <div class="col-md-12">
-      <form class="form-group needs-validation justify-content-center" method="post" " enctype=" multipart/form-data" action="index.php" novalidate>
+      <form class="form-group needs-validation justify-content-center" method="post"  enctype=" multipart/form-data" action="index.php" novalidate>
         <div class="form-row">
 
           <div class="col-md-2">
@@ -43,7 +43,7 @@ if (isset($_POST['editaProduto'])) {
 
           <div class="form-group col-md-10">
             <label for="descricao">Descrição</label>
-            <input value="<?php echo $descricao; ?>" type="text" class="form-control" id="descricao" name="descricao" placeholder="Digite a descrição completa para a venda" required>
+            <input value="<?php echo $descricao; ?>" autofocus type="text" class="form-control" id="descricao" name="descricao" placeholder="Digite a descrição completa para a venda" required>
           </div>
         </div>
         <div class="form-row">
