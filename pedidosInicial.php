@@ -1,10 +1,12 @@
 <?php
 include './validaSessao.php';
+
 $lTC = $pdo->prepare("SELECT * FROM tb_clientes");
 $lTC->execute();
 $listaTodosClientes = $lTC->fetchAll(PDO::FETCH_OBJ);
+
 $ltopc = $pdo->prepare("SELECT tb_pedidos.id_pedido, tb_pedidos.data_hora, tb_clientes.nome, tb_clientes.id_cliente FROM tb_pedidos
-LEFT JOIN tb_clientes ON tb_pedidos.id_cliente=tb_clientes.id_cliente");
+LEFT JOIN tb_clientes ON tb_pedidos.id_cliente=tb_clientes.id_cliente ORDER BY id_pedido");
 $ltopc->execute();
 $listaTodosPedidosCadastrados = $ltopc->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -13,16 +15,16 @@ $listaTodosPedidosCadastrados = $ltopc->fetchAll(PDO::FETCH_OBJ);
     <form action="index.php" method="POST">
         <div class="col-md-12">
             <div class="row">
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-4">
                     <label for="buscarCliente">Cliente</label><br>
-                    <select class="browser-default custom-select" required name="buscarClientePedido">
-                        <option>Selecione um cliente</option>
+                    <select class="browser-default custom-select bg-light" id="select1" required name="buscarClientePedido">
+                    <option value="" disabled selected>Selecione um cliente...</option>
                         <?php foreach ($listaTodosClientes as $c) { ?>
                             <option value="<?php echo $c->id_cliente ?>"><?php echo $c->nome ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-8">
                     <label>Observação</label>
                     <textarea class="form-control" rows="1" name="observacaoClientePedido"></textarea>
                 </div>

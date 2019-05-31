@@ -163,7 +163,7 @@ $populaOsProdutosLaEmBaixo = $popleB->fetchAll(PDO::FETCH_OBJ);
                       <input type="hidden" name="idProduto" value="<?php echo $l->id_produto; ?>">
                       <input type="hidden" name="idPedido" value="<?php echo $dadosPedido['id_pedido']; ?>">
                       <input type="hidden" name="valor" value="<?php echo $l->valor; ?>">
-                      <button name="AddProdutoNaListaDePedido" type="submit" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                      <button name="AddProdutoNaListaDePedido" type="submit" class="btn btn-success"><i class="fas fa-plus"></i></button>
                     </td>
                   </tr>
                 </tbody>
@@ -231,7 +231,7 @@ $populaOsProdutosLaEmBaixo = $popleB->fetchAll(PDO::FETCH_OBJ);
         <div class="row">
           <form action="index.php" method="post">
             <div id="botao">
-              <button type="submit" name="FinalizarPedido" class="btn btn-success text-center"><i class="far fa-save"></i>Gravar</button>
+              <button type="submit" name="FinalizarPedido" class="btn btn-warning text-center"><i class="far fa-save"></i>Gravar</button>
             </div>
           </form>
         </div>
