@@ -11,7 +11,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-
+  <link href="select/css/tail.select-bootstrap4.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <title>Index</title>
 </head>
@@ -55,52 +55,37 @@
   } elseif (isset($_POST['adicionarProduto']) || isset($_POST['editaProduto'])) {
     include('menu.php');
     include('produtos.php');
-
   } elseif (isset($_POST['cadastrarCliente'])) {
     include('action/insertCliente.php');
-
   } elseif (isset($_POST['deletaCliente'])) {
     include('action/deleteCliente.php');
-
   } else if (isset($_POST['editarCliente'])) {
     include('action/editarCliente.php');
-
   } else if (isset($_POST['cadastrarProduto'])) {
     include('action/insertProduto.php');
-
   } elseif (isset($_POST['deletaProduto'])) {
     include('action/deleteProduto.php');
-
   } elseif (isset($_POST['editarProduto'])) {
     include('action/editarProduto.php');
-
   } elseif (isset($_POST['inserirClienteParaFazerPedido'])) {
     include('action/insertPedido.php');
-
   } elseif (isset($_POST['adicionaProdutoNoPedido'])) {
     include('menu.php');
     include('pedidos.php');
-
   } elseif (isset($_POST['AddProdutoNaListaDePedido'])) {
     include('action/insertProdutoPedido.php');
-
   } elseif (isset($_POST['FinalizarPedido'])) {
     include('menu.php');
     include('pedidosInicial.php');
-
   } elseif (isset($_POST['editarProdutoDaLista'])) {
     include('menu.php');
     include('editarProdutoPedido.php');
-
   } elseif (isset($_POST['editarProdutoNoPedido'])) {
     include('action/atualizarProdutoPedido.php');
-
   } elseif (isset($_POST['excluirProdutoDaLista'])) {
     include('action/deleteProdutoPedido.php');
-
   } elseif (isset($_POST['buttonExcluirPedidoFinal'])) {
     include('action/deletePedidoFinal.php');
-
   } elseif (isset($_POST['enviaDadosPdf'])) {
     $_SESSION['id_pedido'] = $_POST['gerarPdf'];
     $_SESSION['id_cliente'] = $_POST['nomeClientePdf'];
@@ -155,7 +140,16 @@
   <script src="js/jquery.mask.min.js"></script>
   <!-- JQuery formatação campos -->
   <!-- <script src="js/examples.js"></script> -->
-
+  <script src="select/js/tail.select-full.min.js"></script>
+  <script>
+      tail.select('#select1', {
+        search : true,
+        animate: true,
+        placeholder: "Selecione um cliente...",
+        
+      })
+     
+  </script>
 
   <script>
     var contador = '<?php if ($fim <= 0) {
