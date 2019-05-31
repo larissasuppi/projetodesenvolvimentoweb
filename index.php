@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="select/css/tail.select-bootstrap4.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <title>Index</title>
+  <title>SUPPI LTDA.</title>
 </head>
 
 <body>
@@ -142,13 +142,12 @@
   <!-- <script src="js/examples.js"></script> -->
   <script src="select/js/tail.select-full.min.js"></script>
   <script>
-      tail.select('#select1', {
-        search : true,
-        animate: true,
-        placeholder: "Selecione um cliente...",
-        
-      })
-     
+    tail.select('#select1', {
+      search: true,
+      animate: true,
+      placeholder: "Selecione um cliente...",
+
+    })
   </script>
 
   <script>

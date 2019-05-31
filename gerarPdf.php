@@ -154,7 +154,7 @@ if (!isset($_SESSION['id_pedido'])) {
             </tr>
         </thead>
         <tbody> ';
-    foreach ($listaTodosPedidosCadastrados as $l):
+    foreach ($listaTodosPedidosCadastrados as $l) :
         $html .= '
                 <tr>
                     <td>' . $l->id_produto . ' </td>
@@ -165,12 +165,12 @@ if (!isset($_SESSION['id_pedido'])) {
                 </tr>';
 
     endforeach;
-    $html .='
+    $html .= '
         </tbody> 
     </table>
 ';
 
-    require_once ('dompdf/autoload.inc.php');
+    require_once('dompdf/autoload.inc.php');
 
     $dompdf = new DOMPDF();
     $dompdf->load_html($html);
@@ -179,4 +179,3 @@ if (!isset($_SESSION['id_pedido'])) {
 
     $dompdf->stream("Pedido_$impressaoNumeroPedido", array("Attachment" => true));
 }
-

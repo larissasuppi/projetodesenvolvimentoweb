@@ -102,7 +102,7 @@ $populaOsProdutosLaEmBaixo = $popleB->fetchAll(PDO::FETCH_OBJ);
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <input class="form-control rounded-left" type="text" id="pegaOtextoParaPassarParaLa" name="pegaOtextoParaPassarParaLa" placeholder="Digite nome do produto" />
-                  <button name="adicionaProdutoNoPedido" class="btn btn-outline-secondary rounded-right"  type="submit">Buscar</button>
+                  <button name="adicionaProdutoNoPedido" class="btn btn-outline-secondary rounded-right" type="submit">Buscar</button>
                 </div>
               </div>
               <input type="hidden" name="recebeIdDoPedidoQueNaoParaDeAumentar" value="<?php echo $dadosPedido['id_pedido'] ?>">
